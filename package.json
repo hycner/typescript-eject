@@ -1,0 +1,41 @@
+{
+  "name": "typescript-eject",
+  "version": "1.0.0",
+  "description": "How to bail out of a Typescript project back to vanilla JS",
+  "main": "index.js",
+  "dependencies": {
+    "react": "16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.4.4",
+    "@babel/core": "7.4.5",
+    "@babel/preset-typescript": "7.3.3",
+    "@types/react": "16.8.19",
+    "prettier": "1.18.2",
+    "typescript": "3.5.1"
+  },
+  "scripts": {
+    "copy-non-scripts": "rsync -av --exclude='**/*.ts' --exclude='**/*.tsx' src/ src-new",
+    "eject": "npm run copy-non-scripts && npm run strip-ts && npm run format:output",
+    "format:input": "./node_modules/.bin/prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format:output": "./node_modules/.bin/prettier --write \"src-new/**/*.{js,jsx,ts,tsx}\"",
+    "strip-ts": "babel src -d src-new --extensions \".ts,.tsx\""
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hycner/typescript-eject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hycner/typescript-eject/issues"
+  },
+  "homepage": "https://github.com/hycner/typescript-eject#readme"
+}
